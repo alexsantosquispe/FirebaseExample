@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Button, View, Text } from 'react-native'
+import { Button, StyleSheet, View, Text } from 'react-native'
 import auth from '@react-native-firebase/auth'
-import { GlobalStyles } from './styles'
 
-function App() {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
+
+const App = () => {
   const [initializing, setInitializing] = useState(true)
   const [user, setUser] = useState()
 
@@ -44,7 +51,7 @@ function App() {
 
   const renderLogin = () => {
     return (
-      <View style={GlobalStyles.container}>
+      <View style={styles.container}>
         <Text style={{ padding: 8 }}>Login</Text>
         <Button title={'Anonimous Signin'} onPress={logIn} />
       </View>
@@ -53,7 +60,7 @@ function App() {
 
   const renderWelcome = (user) => {
     return (
-      <View style={GlobalStyles.container}>
+      <View style={styles.container}>
         <Text>Welcome</Text>
         <Text style={{ padding: 16 }}>{user.uid}</Text>
         <Button title={'LogOut'} onPress={logOut} />
