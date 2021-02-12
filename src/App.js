@@ -52,7 +52,6 @@ function App() {
   }
 
   const renderWelcome = (user) => {
-    debugger
     return (
       <View style={GlobalStyles.container}>
         <Text>Welcome</Text>
